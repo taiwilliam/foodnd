@@ -1,19 +1,20 @@
-import React, { PureComponent } from 'react'
-import Home from '@/views/Home'
+import React, { memo } from 'react'
+import { useRoutes } from "react-router-dom"
+import routes from '@/router'
 
-export class App extends PureComponent {
-  render() {
-    return (
-      <div>
-        <div className="red">header</div>
-        <div className="content">
-          <Home/>
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
-        </div>
-        <div className="">footer</div>
+const App = memo(() => {
+  return (
+    <div>
+      <Header/>
+      <div className="content">
+        { useRoutes(routes) }
       </div>
-    )
-  }
-}
+      <Footer/>
+    </div>
+  )
+})
 
 export default App

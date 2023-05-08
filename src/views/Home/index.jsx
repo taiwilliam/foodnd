@@ -1,11 +1,13 @@
-import React, { PureComponent } from 'react'
+import React, { memo } from 'react'
 
-export class index extends PureComponent {
-  render() {
-    return (
-      <div className='fs-lg'>home</div>
-    )
-  }
-}
+const index = memo(() => {
+  return (
+    <div>
+      Home
+      <p className='text-primary'>primary</p>
+      <p className='text-secondary'>secondary</p>
+    </div>
+  )
+})
 
 export default index
