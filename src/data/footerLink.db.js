@@ -1,4 +1,4 @@
-export default [
+const footerLinkArr = [
   'Hong Kong',
   'Pakistan',
   'Bangladesh',
@@ -9,3 +9,5 @@ export default [
   'Laos',
   'Cambodia'
 ]
+
+export default footerLinkArr

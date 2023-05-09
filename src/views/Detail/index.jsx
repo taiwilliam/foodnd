@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-export class index extends PureComponent {
+export class DetailView extends PureComponent {
   render() {
     return (
       <div>detail</div>
@@ -8,4 +8,4 @@ export class index extends PureComponent {
   }
 }
 
-export default index
+export default DetailView

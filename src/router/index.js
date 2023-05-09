@@ -1,9 +1,9 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 
-const Home = React.lazy(() => import("@/views/home"))
-const List = React.lazy(() => import("@/views/list"))
-const Detail = React.lazy(() => import("@/views/detail"))
+const HomeView = React.lazy(() => import("@/views/home"))
+const ListView = React.lazy(() => import("@/views/list"))
+const DetailView = React.lazy(() => import("@/views/detail"))
 
 const routes = [
   {
@@ -12,14 +12,14 @@ const routes = [
   },
   {
     path: '/home',
-    element: <Home/>
+    element: <HomeView/>
   },
   {
     path: '/list',
-    element: <List/>
+    element: <ListView/>
   },{
     path: '/detail',
-    element: <Detail/>
+    element: <DetailView/>
   },
   {
     path: '/*',

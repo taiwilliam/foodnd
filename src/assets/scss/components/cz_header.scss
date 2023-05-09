@@ -1,5 +1,9 @@
 .cz_header{
   &__logo{
     width: 100px;
+    cursor: pointer;
+    &:hover {
+      opacity: .9;
+    }
   }
 }

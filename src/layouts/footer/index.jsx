@@ -1,15 +1,17 @@
-import React, { memo } from 'react'
+import React, { memo, Fragment } from 'react'
 import footerLinkDate from '@/data/footerLink.db'
 
-const index = memo(() => {
+const BaseFooter = memo(() => {
+  const thisYear = new Date().getFullYear();
 
-  function renderLinkList() {
-    return footerLinkDate.reduce((prev, item, index) => {
-      const linkElement = `<a key=${index} href="#app" class="fw-lighter fs-xs">${ item }</a>`
-      const middleElement = "<span class='mx-2'>|</span>"
-      const element = index + 1 !== footerLinkDate.length ? linkElement + middleElement : linkElement
-      return prev += element
-    },'')
+  function renderLinkList(item, index) {
+    return (
+      // 回傳jsx外層都必須包裹一個元素 這裡的span是多餘的tag 需要再優化\
+      <Fragment>
+        <a href="#app" className="fw-lighter fs-xs">{ item }</a>
+        { index + 1 < footerLinkDate.length && <span className='mx-2'>|</span> }
+      </Fragment>
+    )
   }
 
   return (
@@ -17,7 +19,7 @@ const index = memo(() => {
       <div className="container py-5">
         <div className="row">
           <div className="col-12 col-md-3">
-            <h5 className='fs-md fw-light'>© 2023 foodnd</h5>
+            <h5 className='fs-md fw-light'>© { thisYear } foodnd</h5>
           </div>
           <div className="col-12 col-md-3">
             <div className="mb-3">
@@ -45,10 +47,12 @@ const index = memo(() => {
           </div>
         </div>
         <div className="border-top w-100 my-4"></div>
-        <div dangerouslySetInnerHTML={{__html: renderLinkList()}}></div>
+        <div className="">
+          { footerLinkDate.map((item, index) => renderLinkList(item, index)) }
+        </div>
       </div>
     </div>
   )
 })
 
-export default index
+export default BaseFooter

@@ -8,11 +8,9 @@ import 'material-icons/iconfont/material-icons.css' // icon
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode> // 嚴格模式影響開發暫時關掉
   <BrowserRouter>
     <Suspense fallback="loading">
       <App />
     </Suspense>
   </BrowserRouter>
-  // </React.StrictMode>
 );

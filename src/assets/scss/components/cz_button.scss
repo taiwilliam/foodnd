@@ -1,0 +1,18 @@
+.cz_button{
+  background: $secondary;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 2px;
+  height: 40px;
+  &__icon{
+    font-size: 16px !important;
+    margin-right: 2px;
+  };
+  &:hover{
+    background: darken($secondary, 20%);
+  }
+}
