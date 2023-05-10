@@ -2,8 +2,8 @@ import React, { memo } from 'react'
 import { useRoutes } from "react-router-dom"
 import routes from '@/router'
 
-import Header from "@/layouts/header"
-import Footer from "@/layouts/footer"
+import Header from "@/components/layouts/header"
+import Footer from "@/components/layouts/footer"
 
 const App = memo(() => {
   return (

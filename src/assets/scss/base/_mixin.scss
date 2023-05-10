@@ -1,0 +1,41 @@
+@mixin laptop-xxl{
+    @media (min-width: 1400px){
+        @content
+    }
+};
+
+@mixin laptop-xl{
+    @media (min-width: 1200px){
+        @content
+    }
+};
+
+@mixin laptop{
+    @media (min-width: 992px){
+        @content
+    }
+};
+
+@mixin pad{
+    @media (min-width: 768px){
+        @content
+    }
+};
+
+@mixin mobile{
+    @media (min-width: 576px){
+        @content
+    }
+};
+
+//多行文字隱藏
+@mixin hide-paragraph($line){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    // max-height: unquote($line * 100 + '%');
+}

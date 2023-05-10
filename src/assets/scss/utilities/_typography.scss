@@ -1,3 +1,7 @@
+.fs-xxl {
+  font-size: 30px !important;
+}
+
 .fs-xl {
   font-size: 26px !important;
 }
@@ -16,4 +20,14 @@
 
 .fs-xs {
   font-size: 12px !important;
+}
+
+.text-truncate-2 {
+  @include hide-paragraph(2);
+  max-height: unquote(200 + '%')
+}
+
+.text-truncate-3 {
+  @include hide-paragraph(3);
+  max-height: unquote(300 + '%')
 }

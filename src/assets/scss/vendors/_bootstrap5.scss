@@ -1,21 +1,23 @@
 // Configuration
 @import "/node_modules/bootstrap/scss/functions";
 
-$include-column-box-sizing: true !default;
+// $include-column-box-sizing: true !default;
 
 // Customize variables
-$primary: #FF385C;
-$secondary: #DDDDDD;
+$enable-negative-margins: true;
+$primary: #ff385c;
+$secondary: #dddddd;
 $dark: #222222;
-$light: #F7F7F7;
+$light: #f7f7f7;
 
 @import "/node_modules/bootstrap/scss/variables";
 @import "/node_modules/bootstrap/scss/maps";
 @import "/node_modules/bootstrap/scss/mixins";
-@import "/node_modules/bootstrap/scss/utilities";
+@import "/node_modules/bootstrap/scss/root";
 
 // Layout & components
-@import "/node_modules/bootstrap/scss/root";
+@import "/node_modules/bootstrap/scss/utilities";
+@import "/node_modules/bootstrap/scss/reboot";
 @import "/node_modules/bootstrap/scss/containers";
 @import "/node_modules/bootstrap/scss/grid";
 

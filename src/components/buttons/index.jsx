@@ -10,7 +10,7 @@ const BaseButton = memo((props) => {
   if(rounded === 'pill') btnClassNames.push('rounded-pill')
   if(rounded === 'circle') btnClassNames.push('rounded-circle')
   // 設定額外class屬性
-  if(classNames && classNames.length > 0) btnClassNames.push(...classNames)
+  btnClassNames.push(...classNames)
 
   // 設定無內容時 icon 不需margin
   if(!value) iconClassNames.push('me-0')
@@ -31,6 +31,8 @@ BaseButton.propTypes = {
   classNames: PropTypes.array
 }
 
-
+BaseButton.defaultProps = {
+  classNames: []
+}
 
 export default BaseButton

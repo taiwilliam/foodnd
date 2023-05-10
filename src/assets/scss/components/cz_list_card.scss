@@ -1,0 +1,59 @@
+.cz_list_card{
+  cursor: pointer;
+  &:hover &__head__wrap{
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32);
+  }
+  &:hover &__body p{
+    text-decoration: underline;
+  }
+  &__head{
+    position: relative;
+    &__wrap {
+      transition: 250ms ease-in;
+      width: 100%;
+      padding-top: 100%;
+      position: relative;
+      display: block;
+      border-radius: 16px;
+      overflow: auto;
+      &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        vertical-align: bottom;
+        object-fit: cover;
+      }
+    }
+    &__btn{
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: $dark;
+      border: none;
+      border-radius: 100%;
+      height: 32px;
+      width: 32px;
+      font-size: 12px;
+      padding: 4px;
+      &__icon{
+        color: white;
+        font-size: 24px !important;
+        text-align: center;
+        transition: color 250ms ease-in;
+      }
+    }
+  }
+  &__body{
+    padding: 0.5rem 0;
+    &__icon{
+      background: $secondary;
+      border: none;
+      border-radius: 100%;
+      height: 28px;
+      width: 28px;
+      font-size: 12px;
+    }
+  }
+}

@@ -7,6 +7,7 @@ a {
   color: #222222;
   text-decoration: none;
   &:hover{
+    color: initial;
     text-decoration: underline
   }
 }

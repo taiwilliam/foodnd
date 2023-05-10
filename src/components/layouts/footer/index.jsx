@@ -7,9 +7,9 @@ const BaseFooter = memo(() => {
   function renderLinkList(item, index) {
     return (
       // 回傳jsx外層都必須包裹一個元素 這裡的span是多餘的tag 需要再優化\
-      <Fragment>
-        <a href="#app" className="fw-lighter fs-xs">{ item }</a>
-        { index + 1 < footerLinkDate.length && <span className='mx-2'>|</span> }
+      <Fragment key={index}>
+        <a href="#app" className="fw-lighter fs-xs text-nowrap">{ item }</a>
+        { index + 1 < footerLinkDate.length && <span className='mx-2 text-secondary'>|</span> }
       </Fragment>
     )
   }
@@ -17,9 +17,11 @@ const BaseFooter = memo(() => {
   return (
     <div className='bg-light border-top'>
       <div className="container py-5">
-        <div className="row">
+        <div className="row gy-3">
           <div className="col-12 col-md-3">
-            <h5 className='fs-md fw-light'>© { thisYear } foodnd</h5>
+            <div className="mb-3">
+              <h5 className='fs-md fw-light'>© { thisYear } foodnd</h5>
+            </div>
           </div>
           <div className="col-12 col-md-3">
             <div className="mb-3">
@@ -47,9 +49,9 @@ const BaseFooter = memo(() => {
           </div>
         </div>
         <div className="border-top w-100 my-4"></div>
-        <div className="">
+        <p className="text-break">
           { footerLinkDate.map((item, index) => renderLinkList(item, index)) }
-        </div>
+        </p>
       </div>
     </div>
   )

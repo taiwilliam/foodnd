@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import BaseButton from '@/components/button';
-import BaseSearchBar from '@/components/searchBar';
-import logoPath from '@/assets/images/logo/airbnb.svg'
+import BaseButton from '@/components/buttons';
+import BaseSearchBar from '@/components/searchBars';
+import logoPath from '@/assets/images/logo/foodnd.svg'
 
 const BaseHeader = memo(() => {
   const navigate = useNavigate()
@@ -11,7 +11,7 @@ const BaseHeader = memo(() => {
   return (
     <div className='cz_header border-bottom border-secondary py-4'>
       <div className="container d-flex">
-        <div className='d-flex flex-1 align-items-center'>
+        <div className='d-flex flex-sm-1 align-items-center'>
           <img
             className='cz_header__logo'
             src={ logoPath }
@@ -19,8 +19,8 @@ const BaseHeader = memo(() => {
             onClick={ () => navigate('/home') }
           />
         </div>
-        <div className=''>
-          <BaseSearchBar/>
+        <div className='d-none d-md-block'>
+          <BaseSearchBar />
         </div>
         <div className='d-flex flex-1 justify-content-end align-items-center'>
           <BaseButton

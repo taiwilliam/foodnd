@@ -22,7 +22,7 @@ const BaseIcon = memo((props) => {
   }
 
   // 設定額外class屬性
-  if(iconClassNames && iconClassNames.length > 0) iconClassNames.push(classNames)
+  iconClassNames.push(...classNames)
 
   return (
     <span className={iconClassNames.join(' ')}>{ icon }</span>
@@ -33,6 +33,11 @@ BaseIcon.propTypes = {
   icon: PropTypes.string.isRequired,
 	type: PropTypes.string,
   classNames: PropTypes.array
+}
+
+BaseIcon.defaultProps = {
+  type: FILLED,
+  classNames: []
 }
 
 export default BaseIcon
