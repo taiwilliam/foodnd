@@ -29,10 +29,7 @@ const HomeView = memo(() => {
                 className="col-6 col-md-4 col-lg-3" 
               >
                 <BaseHomeCard
-                  title={item.name}
-                  cover={item.cover}
-                  price={item.price}
-                  score={item.score}
+                  { ...item }
                   classNames={['cursor-pointer']}
                   handleClick={ () => navigate('/list') }
                 />
@@ -54,10 +51,7 @@ const HomeView = memo(() => {
                 className="col-6 col-md-4 col-lg-3" 
               >
                 <BaseHomeCard
-                  title={item.name}
-                  cover={item.cover}
-                  price={item.price}
-                  score={item.score}
+                  { ...item }
                   classNames={['cursor-pointer']}
                   handleClick={ () => navigate('/list') }
                 />
@@ -79,10 +73,7 @@ const HomeView = memo(() => {
                 className="col-6 col-md-4 col-lg-3" 
               >
                 <BaseHomeCard
-                  title={item.name}
-                  cover={item.cover}
-                  price={item.price}
-                  score={item.score}
+                  { ...item }
                   classNames={['cursor-pointer']}
                   handleClick={ () => navigate('/list') }
                 />

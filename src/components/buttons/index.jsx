@@ -1,8 +1,8 @@
-import React, { memo } from 'react'
-import PropTypes from "prop-types"
+import React, { Fragment, memo } from 'react'
+import propTypes from "prop-types"
 
 const BaseButton = memo((props) => {
-  const { value, icon, rounded, classNames } = props
+  const { value, icon, rounded, classNames, handleClick, children } = props
   const btnClassNames = ['cz_button']
   const iconClassNames = ['material-icons cz_button__icon']
   
@@ -15,23 +15,41 @@ const BaseButton = memo((props) => {
   // 設定無內容時 icon 不需margin
   if(!value) iconClassNames.push('me-0')
 
+  const renderChildren = () => {
+    return children
+  }
+
+  const renderDefault = () => {
+    return (
+      <Fragment>
+        { icon && <span className={ iconClassNames.join(' ') }>{ icon }</span> }
+        { value }
+      </Fragment>
+    )
+  }
+
   return (
     <button
-      className={ btnClassNames.join(' ') }>
-      { icon && <span className={ iconClassNames.join(' ') }>{ icon }</span> }
-      { value }
+      className={ btnClassNames.join(' ') }
+      onClick={ e => handleClick(e) }
+    >
+      { 
+        children ? renderChildren() : renderDefault()
+      }
     </button>
   )
 })
 
 BaseButton.propTypes = {
-	value: PropTypes.string,
-	icon: PropTypes.string,
-	rounded: PropTypes.string,
-  classNames: PropTypes.array
+	value: propTypes.string,
+	icon: propTypes.string,
+	rounded: propTypes.string,
+  classNames: propTypes.array,
+  handleClick: propTypes.func
 }
 
 BaseButton.defaultProps = {
+  handleClick: () => {},
   classNames: []
 }
 

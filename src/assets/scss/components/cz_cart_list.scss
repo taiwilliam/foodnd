@@ -1,0 +1,33 @@
+.cz_cart_list{
+  display: flex;
+  align-items: center;
+  margin-left: -.5rem;
+  margin-right: -.5rem;
+  border-bottom: 1px solid $secondary;
+  &:last-child{
+    border-bottom: none
+  }
+  &__item{
+    padding: 1rem .5rem;
+    &--full{
+      flex: 1
+    };
+    &__icon{
+      display: flex;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      background: $dark;
+      color: white;
+      border-radius: 100%;
+    }
+  }
+  // &--end{
+  //   padding: 1rem .5rem;
+  //   &__icon{
+  //     margin-left: 1rem;
+  //     text-decoration: underline;
+  //   }
+  // }
+}

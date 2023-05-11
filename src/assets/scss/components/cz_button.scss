@@ -15,4 +15,7 @@
   &:hover{
     background: darken($secondary, 20%);
   }
+  &.btn-lg{
+    height: 44px;
+  }
 }

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import propTypes from 'prop-types'
+// import propTypes from 'prop-types'
 import BaseIcon from '@/components/icons'
 
 const BaseListCard = memo((props) => {

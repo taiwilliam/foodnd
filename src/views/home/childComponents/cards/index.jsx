@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import BaseIcon from '@/components/icons'
 
 const BaseHomeCard = memo((props) => {
-  const {title, cover, price, score, classNames, handleClick} = props
+  const {name, cover, price, score, classNames, handleClick} = props
   const cardClassNames = ['cz_card']
   // 設定額外class屬性
   cardClassNames.push(...classNames)
@@ -22,7 +22,7 @@ const BaseHomeCard = memo((props) => {
         <div className="cz_card__body">
           <div className="d-flex mx-n1 align-items-center">
             <div className="flex-grow-1 text-truncate px-1">
-              <p className='text-truncate mb-0'>{ title }</p>
+              <p className='text-truncate mb-0'>{ name }</p>
             </div>
             <div className="px-1">
               <button className="cz_card__body__icon">{ score }</button>
@@ -35,12 +35,12 @@ const BaseHomeCard = memo((props) => {
 })
 
 BaseHomeCard.propTypes = {
-	title: PropTypes.string,
-	cover: PropTypes.string,
-	price: PropTypes.number,
-	score: PropTypes.number,
-  classNames: PropTypes.array,
-  handleClick: PropTypes.func
+	name: propTypes.string,
+	cover: propTypes.string,
+	price: propTypes.number,
+	score: propTypes.number,
+  classNames: propTypes.array,
+  handleClick: propTypes.func
 }
 
 BaseHomeCard.defaultProps = {

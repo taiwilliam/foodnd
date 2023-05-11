@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import BaseListCard from '@/views/list/childComponents/card';
 
 const ListItemGroup = memo((props) => {
-  const { data, title } = props
+  const { data, title, handleClick } = props
  
   return (
     <div className="row g-4 mb-5">
@@ -17,7 +17,7 @@ const ListItemGroup = memo((props) => {
               key={ index }
               className="col-6 col-md-3 col-lg-2" 
             >
-              <BaseListCard {...item}/>
+              <BaseListCard {...item} handleClick={ () => handleClick(item.id) }/>
             </div>
           )
         })

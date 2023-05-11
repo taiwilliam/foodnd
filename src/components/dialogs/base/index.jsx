@@ -2,8 +2,8 @@ import React, { memo, useEffect, useState } from 'react'
 import propTypes from 'prop-types'
 
 const BaseDialog = memo((props) => {
-  const { show, handleClose, classNames } = props
-  const [dialogClassNames, setDialogClassNames] = useState(['cz_dialog'])
+  const { show, handleClose, classNames, children } = props
+  const [dialogClassNames, setDialogClassNames] = useState(['cz_dialog',...classNames])
 
   useEffect(() => {
     let dialogClassNames_ = [...dialogClassNames]
@@ -25,7 +25,7 @@ const BaseDialog = memo((props) => {
             </button>
           </div>
           <div className="cz_dialog__bg__main__body">
-            yoyo 這裡是內容喔
+            { children }
           </div>
         </div>
       </div>
@@ -39,6 +39,7 @@ BaseDialog.propTypes = {
 }
 
 BaseDialog.defaultProps = {
+  handleClick: () => {},
   classNames: [],
   show: false
 }
