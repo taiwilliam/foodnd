@@ -7,14 +7,6 @@ const HomeView = memo(() => {
   const navigate = useNavigate()
   const [shopList] = useState(shopListData)
 
-  useEffect(() => {
-    console.log('渲染完了')
-
-    return () => {
-      console.log('銷毀了')
-    }
-  },[])
-
   return (
     <div className='container py-5'>
       <div className="row g-4 mb-5">
