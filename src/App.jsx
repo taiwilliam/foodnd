@@ -4,6 +4,7 @@ import routes from '@/router'
 
 import Header from "@/components/layouts/header"
 import Footer from "@/components/layouts/footer"
+import BaseAlert from './components/alerts'
 
 const App = memo(() => {
   return (
@@ -13,6 +14,7 @@ const App = memo(() => {
         { useRoutes(routes) }
       </div>
       <Footer/>
+      <BaseAlert/>
     </div>
   )
 })

@@ -1,4 +1,10 @@
 .cz_card{
+  &:hover .cz_wrap{
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32);
+  }
+  &:hover &__body p{
+    text-decoration: underline;
+  }
   &__head{
     position: relative;
     &__btn{

@@ -5,6 +5,7 @@
   display: block;
   border-radius: 16px;
   overflow: hidden;
+  transition: 250ms ease-in;
   &__img {
     position: absolute;
     top: 0;

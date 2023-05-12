@@ -1,9 +1,10 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import propTypes from 'prop-types'
 
 const BaseDialog = memo((props) => {
   const { show, handleClose, classNames, children } = props
   const [dialogClassNames, setDialogClassNames] = useState(['cz_dialog',...classNames])
+  const ref = useRef(null);
 
   useEffect(() => {
     let dialogClassNames_ = [...dialogClassNames]
@@ -13,6 +14,9 @@ const BaseDialog = memo((props) => {
     }else{
       setDialogClassNames(dialogClassNames_.filter(e => e !== 'd-block'))
     }
+
+    // 每次啟用時 將畫面至頂
+    ref.current.scrollTop = 0
   },[show])
 
   return (
@@ -24,7 +28,7 @@ const BaseDialog = memo((props) => {
               <span className='material-icons' onClick={() => {}}>close</span>
             </button>
           </div>
-          <div className="cz_dialog__bg__main__body">
+          <div className="cz_dialog__bg__main__body" ref={ref}>
             { children }
           </div>
         </div>

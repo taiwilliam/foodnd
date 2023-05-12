@@ -6,9 +6,21 @@
   padding: 4px 4px 4px 24px;
   &__left{
     width: 200px;
+    @include pad{
+      width: 150px;
+    };
+    @include laptop{
+      width: 200px;
+    };
     transition: width 250ms ease-in;
     &:focus-within{
       width: 250px;
+      @include pad{
+        width: 175px;
+      };
+      @include laptop{
+        width: 250px;
+      };
     }
     &__input{
       border: none;

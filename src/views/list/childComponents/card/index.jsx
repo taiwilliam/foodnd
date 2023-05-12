@@ -15,7 +15,7 @@ const BaseListCard = memo((props) => {
             <img className='cz_list_card__head__wrap__img' src={ cover } alt="" />
           </div>
 
-          <button className="cz_list_card__head__btn" onClick={ e => e.stopPropagation()}>
+          <button className="cz_list_card__head__btn">
             <BaseIcon icon='add' type='outlined' classNames={['cz_list_card__head__btn__icon']}/>
           </button>
         </div>

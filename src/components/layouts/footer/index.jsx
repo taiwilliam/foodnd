@@ -1,8 +1,10 @@
 import React, { memo, Fragment } from 'react'
 import footerLinkDate from '@/data/footerLink.db'
+import { useNavigate } from 'react-router-dom'
 
 const BaseFooter = memo(() => {
   const thisYear = new Date().getFullYear();
+  const navigate = useNavigate();
 
   function renderLinkList(item, index) {
     return (
@@ -41,7 +43,7 @@ const BaseFooter = memo(() => {
           </div>
           <div className="col-12 col-md-3">
             <div className="mb-3">
-              <a href="#app" className='fs-md fw-light'>關於foodnd</a>
+              <a href="#app" onClick={() => navigate('/about')} className='fs-md fw-light'>關於foodnd</a>
             </div>
             <div className="mb-3">
               <a href="#app" className='fs-md fw-light'>企業徵才</a>
