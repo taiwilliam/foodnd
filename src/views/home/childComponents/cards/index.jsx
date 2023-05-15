@@ -3,13 +3,13 @@ import propTypes from 'prop-types'
 import BaseIcon from '@/components/icons'
 
 const BaseHomeCard = memo((props) => {
-  const {name, cover, price, score, classNames, handleClick} = props
+  const {id, name, cover, price, score, classNames, handleClick} = props
   const cardClassNames = ['cz_card']
   // 設定額外class屬性
   cardClassNames.push(...classNames)
 
   return (
-    <div className={ cardClassNames.join(' ') } onClick={ e => handleClick(e) }>
+    <div className={ cardClassNames.join(' ') } onClick={ e => handleClick(id) }>
         <div className="cz_card__head">
           <div className='cz_wrap'>
             <img className='cz_wrap__img' src={ cover } alt="" />

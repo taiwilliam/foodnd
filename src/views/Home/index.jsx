@@ -23,7 +23,7 @@ const HomeView = memo(() => {
                 <BaseHomeCard
                   { ...item }
                   classNames={['cursor-pointer']}
-                  handleClick={ () => navigate('/list') }
+                  handleClick={ (id) => navigate(`/list/${id}`) }
                 />
               </div>
             )
@@ -45,14 +45,14 @@ const HomeView = memo(() => {
                 <BaseHomeCard
                   { ...item }
                   classNames={['cursor-pointer']}
-                  handleClick={ () => navigate('/list') }
+                  handleClick={ (id) => navigate(`/list/${id}`) }
                 />
               </div>
             )
           })
         }
       </div>
-
+      {/*  */}
       <div className="row g-4 mb-5">
         <div className="col-12">
           <h3 className='mb-0 fs-xl'>新餐廳</h3>
@@ -67,7 +67,7 @@ const HomeView = memo(() => {
                 <BaseHomeCard
                   { ...item }
                   classNames={['cursor-pointer']}
-                  handleClick={ () => navigate('/list') }
+                  handleClick={ (id) => navigate(`/list/${id}`) }
                 />
               </div>
             )

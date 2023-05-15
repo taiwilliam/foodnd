@@ -5,6 +5,7 @@ const HomeView = React.lazy(() => import("@/views/home"))
 const ListView = React.lazy(() => import("@/views/list"))
 const DetailView = React.lazy(() => import("@/views/detail"))
 const AboutView = React.lazy(() => import("@/views/about"))
+const LoadingView = React.lazy(() => import("@/components/layouts/loading/Loading"))
 
 const routes = [
   {
@@ -16,7 +17,7 @@ const routes = [
     element: <HomeView/>
   },
   {
-    path: '/list',
+    path: '/list/:id',
     element: <ListView/>
   },
   {
@@ -26,6 +27,10 @@ const routes = [
   {
     path: '/about',
     element: <AboutView/>
+  },
+  {
+    path: '/loading',
+    element: <LoadingView/>
   },
   {
     path: '/*',

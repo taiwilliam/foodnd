@@ -14,7 +14,7 @@ const App = memo(() => {
         { useRoutes(routes) }
       </div>
       <Footer/>
-      <BaseAlert/>
+      {/* <BaseAlert/> */}
     </div>
   )
 })

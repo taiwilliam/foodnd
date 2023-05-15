@@ -13,7 +13,7 @@ import ListFixedBar from './childComponents/fixedBar';
 
 const ListView = memo(() => {
   const dispatch = useDispatch()
-
+  // 
   const [shopData] = useState(shopListDB[5]) // 店家基本資料
   const [shopMenuData] = useState(shopMenuDB) // 店家的菜單資料
   const [openDialog, setOpenDialog] = useState(false) // 彈出視窗開關

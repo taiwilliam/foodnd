@@ -30,6 +30,7 @@ const BaseButton = memo((props) => {
 
   return (
     <button
+      // 註解
       className={ btnClassNames.join(' ') }
       onClick={ e => handleClick(e) }
     >

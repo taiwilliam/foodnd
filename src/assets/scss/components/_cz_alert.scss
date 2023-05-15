@@ -1,0 +1,11 @@
+.cz_alert {
+  &__main{
+    position: fixed;
+    bottom: calc(50% - 50px);
+    left: calc(50% - 50px);
+    background: white;
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  }
+}
