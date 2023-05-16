@@ -1,11 +1,52 @@
-.cz_alert {
-  &__main{
-    position: fixed;
-    bottom: calc(50% - 50px);
-    left: calc(50% - 50px);
-    background: white;
-    padding: 1rem;
-    border-radius: .5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  }
+.cz_alert{
+  visibility: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 100ms ease-in;
+}
+
+.cz_alert.cz_alert--active{
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.cz_alert__main{
+  position: fixed;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  max-width: 300px;
+  transform: translate(-50%,-50%);
+  background: white;
+  border-radius: .5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.cz_alert__main__left{
+  padding: 1rem 0 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cz_alert__main__right{
+  padding: 1rem;
+}
+
+.cz_alert__main__right__btn{
+  background: white;
+  border: none;
+  padding: 4px;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+}
+
+.cz_alert__main__right__btn:hover{
+  background: $secondary;
 }

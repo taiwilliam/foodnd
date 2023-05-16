@@ -2,19 +2,19 @@ import React, { memo } from 'react'
 import { useRoutes } from "react-router-dom"
 import routes from '@/router'
 
-import Header from "@/components/layouts/header"
-import Footer from "@/components/layouts/footer"
-import BaseAlert from './components/alerts'
+import BaseHeader from "@/components/Layouts/Headers/BaseHeader"
+import BaseFooter from "@/components/Layouts/Footers/BaseFooter"
+import BaseAlert from '@/components/Alert/BaseAlert'
 
 const App = memo(() => {
   return (
     <div>
-      <Header/>
+      <BaseHeader/>
       <div className="content">
         { useRoutes(routes) }
       </div>
-      <Footer/>
-      {/* <BaseAlert/> */}
+      <BaseFooter/>
+      <BaseAlert/>
     </div>
   )
 })

@@ -1,11 +1,10 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 
-const HomeView = React.lazy(() => import("@/views/home"))
-const ListView = React.lazy(() => import("@/views/list"))
-const DetailView = React.lazy(() => import("@/views/detail"))
-const AboutView = React.lazy(() => import("@/views/about"))
-const LoadingView = React.lazy(() => import("@/components/layouts/loading/Loading"))
+const HomeView = React.lazy(() => import("@/views/home/Home"))
+const ListView = React.lazy(() => import("@/views/list/List"))
+const DetailView = React.lazy(() => import("@/views/detail/Detail"))
+const AboutView = React.lazy(() => import("@/views/about/About"))
 
 const routes = [
   {
@@ -27,10 +26,6 @@ const routes = [
   {
     path: '/about',
     element: <AboutView/>
-  },
-  {
-    path: '/loading',
-    element: <LoadingView/>
   },
   {
     path: '/*',
