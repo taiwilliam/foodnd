@@ -14,6 +14,7 @@ const ListCartDialogContent = memo((props) => {
   }))
 
   const handleRemoveCartBtn = async (id) => {
+
     await dispatch(removeCartDataAction(id))
 
     dispatch(setAlertAction({

@@ -1,35 +1,35 @@
-@mixin laptop-xxl{
-    @media (min-width: 1400px){
-        @content
+@mixin laptop-xxl {
+    @media (min-width: 1400px) {
+        @content;
     }
-};
+}
 
-@mixin laptop-xl{
-    @media (min-width: 1200px){
-        @content
+@mixin laptop-xl {
+    @media (min-width: 1200px) {
+        @content;
     }
-};
+}
 
-@mixin laptop{
-    @media (min-width: 992px){
-        @content
+@mixin laptop {
+    @media (min-width: 992px) {
+        @content;
     }
-};
+}
 
-@mixin pad{
-    @media (min-width: 768px){
-        @content
+@mixin pad {
+    @media (min-width: 768px) {
+        @content;
     }
-};
+}
 
-@mixin mobile{
-    @media (min-width: 576px){
-        @content
+@mixin mobile {
+    @media (min-width: 576px) {
+        @content;
     }
-};
+}
 
 //多行文字隱藏
-@mixin hide-paragraph($line){
+@mixin hide-paragraph($line) {
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;

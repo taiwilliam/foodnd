@@ -22,12 +22,12 @@
   font-size: 12px !important;
 }
 
-.text-truncate-2 {
-  @include hide-paragraph(2);
-  max-height: unquote(200 + '%')
-}
+// .text-truncate-2 {
+//   @include hide-paragraph(2);
+//   max-height: unquote(200 + "%");
+// }
 
-.text-truncate-3 {
-  @include hide-paragraph(3);
-  max-height: unquote(300 + '%')
-}
+// .text-truncate-3 {
+//   @include hide-paragraph(3);
+//   max-height: unquote(300 + "%");
+// }

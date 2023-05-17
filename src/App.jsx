@@ -1,22 +1,25 @@
-import React, { memo } from 'react'
-import { useRoutes } from "react-router-dom"
-import routes from '@/router'
+import React, { memo, useEffect, useRef, useState } from "react";
+import { useLocation, useRoutes, matchRoutes } from "react-router-dom";
+import routes from "@/router";
 
-import BaseHeader from "@/components/Layouts/Headers/BaseHeader"
-import BaseFooter from "@/components/Layouts/Footers/BaseFooter"
-import BaseAlert from '@/components/Alert/BaseAlert'
+import DynamicComponent from "./components/others/DynamicComponent";
 
 const App = memo(() => {
-  return (
-    <div>
-      <BaseHeader/>
-      <div className="content">
-        { useRoutes(routes) }
-      </div>
-      <BaseFooter/>
-      <BaseAlert/>
-    </div>
-  )
-})
+  const location = useLocation();
+  const [layout, setLayout] = useState("BaseLayout");
+  const ref = useRef(null);
 
-export default App
+  useEffect(() => {
+    const [{ route }] = matchRoutes(routes, location);
+    setLayout(route.layout);
+  }, [location]);
+
+  return (
+    <div ref={ref}>
+      {/* 根據routes obj的layout參數，動態使用layout components */}
+      <DynamicComponent is={`${layout}`}>{useRoutes(routes)}</DynamicComponent>
+    </div>
+  );
+});
+
+export default App;

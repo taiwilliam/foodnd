@@ -42,6 +42,9 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.40.0",
+    "prettier": "^2.8.8",
+    "prettier-eslint": "^15.0.1",
     "sass": "^1.62.1"
   }
 }
