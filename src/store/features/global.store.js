@@ -4,21 +4,43 @@ import alertModel from "@/models/alert.model";
 const globalSlice = createSlice({
   name: "shop",
   initialState: {
-    alert: alertModel
+    alert: alertModel,
+    isLoading: false,
+    isPartialLoading: false,
   },
   reducers: {
     setAlertAction(state, action) {
-      state.alert = Object.assign(state.alert, action.payload)
+      state.alert = Object.assign(state.alert, action.payload);
     },
     closeAlertAction(state) {
-      state.alert.show = false
+      state.alert.show = false;
     },
     initAlertAction(state) {
-      state.alert = Object.assign(state.alert, alertModel)
-    }
-  }
+      state.alert = Object.assign(state.alert, alertModel);
+    },
+    showIsLoading(state) {
+      state.isLoading = true;
+    },
+    closeIsLoading(state) {
+      state.isLoading = false;
+    },
+    showIsPartialLoading(state) {
+      state.isPartialLoading = true;
+    },
+    closeIsPartialLoading(state) {
+      state.isPartialLoading = false;
+    },
+  },
 });
 
-export const { setAlertAction, closeAlertAction, initAlertAction } = globalSlice.actions
+export const {
+  setAlertAction,
+  closeAlertAction,
+  initAlertAction,
+  showIsLoading,
+  closeIsLoading,
+  showIsPartialLoading,
+  closeIsPartialLoading,
+} = globalSlice.actions;
 
 export default globalSlice.reducer;

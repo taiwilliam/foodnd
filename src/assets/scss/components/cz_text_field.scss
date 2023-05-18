@@ -1,0 +1,34 @@
+.cz_text_field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  width: 100%;
+}
+
+.cz_text_field__header {
+  display: flex;
+}
+
+.cz_text_field__header__label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cz_text_field__input {
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #dddddd;
+  width: 100%;
+}
+
+.cz_text_field__input.active {
+  border-color: $danger;
+}
+
+.cz_text_field__input::placeholder {
+  color: $text-muted;
+}
+
+.cz_text_field__input:disabled {
+  color: $text-muted !important;
+}

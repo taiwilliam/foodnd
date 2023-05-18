@@ -1,4 +1,4 @@
-.cz_button{
+.cz_button {
   background: $secondary;
   display: flex;
   align-items: center;
@@ -8,14 +8,24 @@
   border-radius: 6px;
   margin: 2px;
   height: 40px;
-  &__icon{
+  &__icon {
     font-size: 16px !important;
     margin-right: 2px;
-  };
-  &:hover{
+  }
+  &:hover {
     background: darken($secondary, 20%);
   }
-  &.btn-lg{
+  &.btn-lg {
     height: 44px;
   }
+}
+
+.cz_button:disabled {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  cursor: auto;
+}
+
+.cz_button:disabled:hover {
+  background: $secondary;
 }
