@@ -30,20 +30,23 @@ const ListView = memo((props) => {
   }));
 
   useEffect(() => {
-    initView();
+    initView(); // 初始化畫面
   }, [dispatch]);
 
   // 獲取非同步資料
   const fetchData = () =>
     Promise.all([
+      // 同步請求該頁面所需要的所有api 並回傳一個promise
       dispatch(fetchShopDataAction(id)),
       dispatch(fetchShopMenuAction(id)),
       dispatch(fetchCartDataAction()),
     ]);
 
   const initView = async () => {
+    // 載入中預設為false
     setIsLoading(false);
     await fetchData();
+    // 當所有api載入完成後 將載入設定為true
     setIsLoading(true);
   };
 
@@ -74,6 +77,7 @@ const ListView = memo((props) => {
 
   return (
     <div className=''>
+      {/* 載入中時顯示 skeleton */}
       {!isLoading && <ListTopSkeleton />}
       {isLoading && (
         <ListTop

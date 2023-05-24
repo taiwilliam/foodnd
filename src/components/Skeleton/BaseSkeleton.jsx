@@ -1,14 +1,12 @@
 import React, { Fragment } from "react";
 
-const BaseSkeleton = (props) => {
-  const {
-    type = "box",
-    heightRatio = 100,
-    classNames = "",
-    text_height = 16,
-    circle_size = 24,
-  } = props;
-
+const BaseSkeleton = ({
+  type = "box",
+  heightRatio = 100,
+  classNames = "",
+  text_height = 16,
+  circle_size = 24,
+}) => {
   return (
     <Fragment>
       {type === "box" && (

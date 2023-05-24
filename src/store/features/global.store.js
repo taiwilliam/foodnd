@@ -5,7 +5,7 @@ const globalSlice = createSlice({
   name: "shop",
   initialState: {
     alert: alertModel,
-    isLoading: false,
+    isLoading: true,
     isPartialLoading: false,
   },
   reducers: {
@@ -18,17 +18,11 @@ const globalSlice = createSlice({
     initAlertAction(state) {
       state.alert = Object.assign(state.alert, alertModel);
     },
-    showIsLoading(state) {
-      state.isLoading = true;
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
     },
-    closeIsLoading(state) {
-      state.isLoading = false;
-    },
-    showIsPartialLoading(state) {
-      state.isPartialLoading = true;
-    },
-    closeIsPartialLoading(state) {
-      state.isPartialLoading = false;
+    setIsPartialLoading(state, action) {
+      state.isPartialLoading = action.payload;
     },
   },
 });
@@ -37,10 +31,8 @@ export const {
   setAlertAction,
   closeAlertAction,
   initAlertAction,
-  showIsLoading,
-  closeIsLoading,
-  showIsPartialLoading,
-  closeIsPartialLoading,
+  setIsLoading,
+  setIsPartialLoading,
 } = globalSlice.actions;
 
 export default globalSlice.reducer;

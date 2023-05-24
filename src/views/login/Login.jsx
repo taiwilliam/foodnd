@@ -1,21 +1,23 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import BaseButton from "@/components/Button/BaseButton";
 import BaseTextField from "@/components/Input/TextField/BaseTextField";
 import phone_validation from "@/views/login/utils/phone_validation";
 import password_validation from "@/views/login/utils/password_validation";
 import authAPI from "@/services/authAPI.service";
+import { AUTH_TOKEN_KEY } from "@/constants/global.constant";
 
-import {
-  closeIsPartialLoading,
-  showIsPartialLoading,
-} from "@/store/features/global.store";
+import { setIsPartialLoading } from "@/store/features/global.store";
+import { getAccountAction } from "@/store/features/auth.store";
+import BaseIcon from "@/components/Icon/BaseIcon";
 
 const Login = memo(() => {
   const methods = useForm();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [errMsg, setErrMsg] = useState("");
   const { isPartialLoading } = useSelector(
     (state) => ({
@@ -25,25 +27,40 @@ const Login = memo(() => {
   );
   // useSelector的缺點是在組件決定是否渲染之前會進行一次引用比較，每次函數調用後都會進行一次重新渲染解決useSelector的缺點：使用shallowEqual進行優化，淺比較會 在組件決定是否渲染之前執行 如果組件依賴的狀態沒有改變，則不會渲染
 
+  useEffect(() => {
+    if (checkIsLogin()) navigate("/home");
+  }, []);
+
+  const checkIsLogin = () => localStorage.getItem(AUTH_TOKEN_KEY);
+
   const onSubmit = methods.handleSubmit((data) => {
     login(data);
   });
 
   const login = async (data) => {
-    dispatch(showIsPartialLoading());
+    dispatch(setIsPartialLoading(true));
     await authAPI
       .login(data)
       .then((res) => loginSuccessTodo(res))
       .catch((err) => loginErrorTodo(err));
-    await dispatch(closeIsPartialLoading());
+
+    await dispatch(getAccountAction()).catch((err) =>
+      localStorage.removeItem(AUTH_TOKEN_KEY)
+    );
+
+    await dispatch(setIsPartialLoading(false));
   };
 
   const loginSuccessTodo = (res) => {
-    console.log(res);
+    // 將token儲存在到 localstorage裡
+    localStorage.setItem(AUTH_TOKEN_KEY, res.data.token);
+
+    // 並跳轉到首頁
+    navigate("/home");
   };
 
   const loginErrorTodo = (err) => {
-    console.log(err);
+    // 顯示錯誤訊息
     setErrMsg(err.message);
   };
 
@@ -70,24 +87,6 @@ const Login = memo(() => {
                 <div className='col-12'>
                   {/* 將TextField參數轉為物件抽離 將規則與畫面關注點分離 */}
 
-                  {/* <BaseTextField
-                    id='password'
-                    type='password'
-                    label='密碼'
-                    placeholder='請輸入密碼'
-                    name='password'
-                    validation={{
-                      required: {
-                        value: true,
-                        message: "說出通關密語!",
-                      },
-                      minLength: {
-                        value: 6,
-                        message: "通關密語太短了",
-                      },
-                    }}
-                  /> */}
-
                   <BaseTextField
                     {...password_validation}
                     disabled={isPartialLoading}
@@ -96,7 +95,8 @@ const Login = memo(() => {
 
                 {errMsg && (
                   <div className='col-12'>
-                    <div className='text-danger p-3 border border-danger rounded-2 fs-sm bg-light'>
+                    <div className='text-danger p-3 border border-danger rounded-2 fs-sm bg-light d-flex align-items-center'>
+                      <BaseIcon icon='error' classNames={["me-2"]} />
                       {errMsg}
                     </div>
                   </div>

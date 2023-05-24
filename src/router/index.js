@@ -15,7 +15,7 @@ const routes = [
   {
     path: "/login",
     element: <LoginView />,
-    layout: "EmptyLayout",
+    layout: "EmptyLayout", // 此為自定義屬性 用來渲染指定layout用
   },
   {
     path: "/home",

@@ -1,0 +1,15 @@
+.cz_dropdown {
+  position: relative;
+  z-index: 99;
+}
+
+.cz_dropdown .cz_dropdown__wrap {
+  position: absolute;
+  padding: 0.5rem 0;
+  right: 0;
+  min-width: 100px;
+  max-height: 400px;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}

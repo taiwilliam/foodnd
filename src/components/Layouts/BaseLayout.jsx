@@ -1,6 +1,4 @@
 import React, { Fragment, memo } from "react";
-// import { useRoutes } from "react-router-dom";
-// import routes from "@/router";
 
 import BaseHeader from "@/components/Layouts/Headers/BaseHeader";
 import BaseFooter from "@/components/Layouts/Footers/BaseFooter";

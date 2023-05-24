@@ -1,12 +1,12 @@
 import React, { Fragment, memo } from "react";
-import BaseHeader from "./Headers/BaseHeader";
+import EmptyHeader from "./Headers/EmptyHeader";
 
 const EmptyLayout = memo((props) => {
   const { children } = props;
 
   return (
     <Fragment>
-      <BaseHeader />
+      <EmptyHeader />
       <div className='content'>{children}</div>
     </Fragment>
   );
