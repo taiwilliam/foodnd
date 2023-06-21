@@ -5,7 +5,7 @@ import BaseIcon from '@/components/Icon/BaseIcon'
 const HomeCard = memo((props) => {
   const {id, name, cover, price, score, classNames, handleClick} = props
   const cardClassNames = ['cz_card']
-  // 設定額外class屬性
+  // 設定額外class屬性 
   cardClassNames.push(...classNames)
 
   return (
